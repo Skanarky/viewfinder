@@ -1,4 +1,4 @@
-# Learn Photography
+# Viewfinder
 
 ## Table of Contents
 
@@ -49,12 +49,12 @@ It helps people to quickly gain solid skills in creating amazing pictures and ar
 
 ## How to Use
 
-On the 'Lessons' page a user can select lesson based on two categories - light or composition.
+On the 'Lessons' page a user can select a lesson from two categories - light or composition.
 
-Users can then enroll in any of the 16 specialized lessons. Each lesson has clear instructions and many specific examples. 'Notes' section is also provided to enhance the learning process.
+Users can then enroll in any of the 16 specialized lessons (14 for composition and 2 for lighting). Each lesson has clear instructions and many visual examples. 'Notes' section is also provided to enhance the learning process.
 
-The user completes each lesson by building a mini gallery inside of it. He has to upload 10 of his best practice pictures (photos that were taken following the lesson's instructions and examples).
+The user completes each lesson by building a mini gallery inside of it. He has to upload 10 of his best practice-pictures (photos that were taken following the lesson's instructions and examples).
 
 Other visitors and users of the app can then comment and like the pictures, have discussions, select the better pictures and many others.
 
-Have fun and MAKE every picture you TAKE!!!
+Have fun MAKE every picture you TAKE!!!
