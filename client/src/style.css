@@ -1,0 +1,970 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.welcome {
+    background-color: rgb(128, 128, 128);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.centerOne {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.phone,
+.oldCamera,
+.camera {
+    background-size: auto 55px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 58px;
+    height: 58px;
+}
+
+.phone {
+    background-image: url("./pics/twovisualizationoptionsforcomputerdevices_79796.png");
+}
+
+.oldCamera {
+    background-image: url("./pics/48898-instagram-social-network-logo-of-photo-camera-icon-vector-icon-vector-eps.png");
+}
+
+.camera {
+    background-image: url("./pics/img_76244.png");
+    width: 80px;
+}
+
+.phone:hover,
+.oldCamera:hover,
+.camera:hover {
+    cursor: pointer;
+    background-size: auto 58px;
+}
+
+.wrapper {
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.topLeft,
+.topRight,
+.bottomLeft,
+.bottomRight {
+    position: absolute;
+    width: 17%;
+    height: 10%;
+}
+
+.topLeft {
+    border-left: 4px solid black;
+    border-top: 4px solid black;
+    left: 7px;
+    top: 7px;
+}
+
+.topRight {
+    border-right: 4px solid black;
+    border-top: 4px solid black;
+    right: 7px;
+    top: 7px;
+}
+
+.bottomLeft {
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+    left: 7px;
+    bottom: 7px;
+}
+
+.bottomRight {
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
+    right: 7px;
+    bottom: 7px;
+}
+
+.noLine,
+.lessons,
+.circle {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.noLine,
+.lessons {
+    color: rgb(128, 128, 128);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 2px;
+    width: 67px;
+    height: 27px;
+}
+
+.circle,
+.lessons {
+    top: 50%;
+    left: 50%;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.login {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    top: 7%;
+    left: 85%;
+    color: rgba(218, 38, 38, 0.952);
+}
+
+
+.others,
+.contact {
+    left: 50%;
+}
+
+.about,
+.masters {
+    top: 50%;
+}
+
+.others {
+    top: 25%;
+}
+
+.contact {
+    top: 75%;
+}
+
+.about {
+    left: 80%;
+}
+
+.masters {
+    left: 20%;
+}
+
+.aboutWrap,
+.mastersWrap,
+.othersWrap,
+.lessonsLandingWrap,
+.lessonsArrangeWrap,
+.viewOneLesson {
+    background-color: rgb(245, 245, 245);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    top: 20px;
+    left: 20px;
+    background-image: url()
+}
+
+/* ----------------------------- */
+
+.aboutWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr .15fr .15fr .3fr .3fr;
+    line-height: 20px;
+    overflow: scroll;
+}
+
+.red {
+    text-transform: uppercase;
+    color: rgba(199, 55, 55, 0.952);
+    font-weight: bold;
+}
+
+.boldy {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+h3,
+h5,
+p {
+    padding: 10px;
+}
+
+h5 {
+    font-style: italic;
+}
+
+h3 {
+    /* padding-top: 10px; */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+.viewfinder {
+    color: rgb(128, 128, 128);
+    box-shadow: 0px 2px 5px 2px rgba(128, 128, 128);
+    text-decoration-line: none;
+    font-weight: bold;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 115px;
+    height: 30px;
+    /* text-align: right; */
+}
+
+.viewfinder:hover {
+    color: rgba(199, 55, 55, 0.952);
+    box-shadow: 0px 1px 4px 1px rgba(128, 128, 128);
+}
+
+.stubbornTwo:hover {
+    color: rgba(199, 55, 55, 0.952);
+    cursor: pointer;
+}
+
+.viewfinder span {
+    text-align: center;
+}
+
+/* ----------------------------- */
+
+.mastersWrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr .25fr .55fr;
+    line-height: 20px;
+    text-align: center;
+}
+
+.mastersWrap h3 {
+    font-size: 1.5em;
+    line-height: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.mastersWrap div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mastersPage {
+    text-decoration-line: none;
+    color: rgb(128, 128, 128);
+    font-weight: bold;
+    letter-spacing: 3px;
+    width: 40%;
+    margin: auto;
+    text-shadow: 7px 5px 8px rgba(128, 128, 128);
+}
+
+.fatali {
+    font-style: italic;
+    font-family: cursive;
+}
+
+.mastersPage:hover {
+    color: rgba(199, 55, 55, 0.952);
+    text-shadow: 2px 2px 8px rgba(128, 128, 128);
+}
+
+/* ----------------------------- */
+
+.othersWrap {
+    display: grid;
+    grid-template-rows: 10% 30% 60%;
+}
+
+.othersSearches {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.othersSearches button {
+    box-shadow: 0px 5px 8px 3px rgba(128, 128, 128);
+    border-radius: 10%;
+    width: 86px;
+    height: 36px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+}
+
+.othersSearches button:hover {
+    box-shadow: 0px 1px 4px 1px rgba(128, 128, 128);
+    width: 90px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.noLineTwo {
+    text-decoration-line: none;
+    width: 86px;
+    height: 36px;
+    color: rgb(128, 128, 128);
+}
+
+.othersForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.othersForm div {
+    padding: 10px;
+}
+
+.othersForm input {
+    text-align: center;
+    width: 90px;
+    height: 30px;
+}
+
+::placeholder {
+    color: rgba(199, 30, 30);
+    font-weight: bold;
+    opacity: .35;
+}
+
+/* Internet Explorer 10-11 */
+
+:-ms-input-placeholder {
+    color: rgba(199, 30, 30, .35);
+    font-weight: bold;
+}
+
+/* Microsoft Edge */
+
+::-ms-input-placeholder {
+    color: rgba(199, 30, 30., .35);
+    font-weight: bold;
+}
+
+/* -------------- */
+
+.othersContain {
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 28px;
+    padding-right: 28px;
+    overflow: scroll;
+}
+
+.noLineThree {
+    text-decoration-line: none;
+    color: rgb(128, 128, 128);
+}
+
+.noLineThree img,
+iframe {
+    box-shadow: 0px 6px 25px 4px rgba(128, 128, 128);
+    width: 260px;
+    height: 146.3px;
+}
+
+.noLineThree img:hover,
+iframe:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.noLineThree p:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.singleItemOthers {
+    font-weight: bold;
+    line-height: 50px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.singleItemOthers .fa {
+    font-size: 2.5em;
+    font-weight: normal;
+    padding: 0;
+}
+
+.singleItemOthers .fa:hover {
+    cursor: pointer;
+    color: rgba(199, 2, 2, 0.63);
+}
+
+.singleItemOthers p {
+    line-height: 20px;
+    text-align: left;
+    width: auto;
+}
+
+/* ----------------------------- */
+
+.lessonsLandingWrap {
+    display: grid;
+}
+
+.centerTwo {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+}
+.composition,
+.prism {
+    color: rgb(128, 128, 128);
+    box-shadow: 0px 12px 15px 1px rgba(128, 128, 128);
+    border: 1px solid black;
+    text-align: center;
+    text-decoration-line: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto 80px;
+    width: 150px;
+    height: 100px;
+}
+
+.composition:hover,
+.prism:hover {
+    box-shadow: 0px 6px 7px 1px rgba(128, 128, 128);   
+}
+
+.composition {
+    background-image: url("./pics/goldenspiraloverlay4-2x3.png");
+}
+
+.prism {
+    background-image: url("./pics/Prism.png");
+}
+
+.composition:hover,
+.prism:hover {
+    color: rgba(199, 55, 55, 0.952);
+}
+
+
+/* ----------------------------- */
+
+
+.lessonsView {
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.lessonsArrangeWrap,
+.viewOneLesson {
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 28px;
+    padding-right: 28px;
+    overflow: scroll;
+}
+
+.lessonsArrange {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.9fr;
+}
+
+.navRoom {
+    padding-top: 5px;
+}
+
+.viewOneLesson {
+    background-color: rgb(128, 128, 128, 1);
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+    text-align: center;
+    /* overflow: visible; */
+}
+
+.viewOneLesson button {
+    box-shadow: 0px 2px 4px 2px rgb(204, 201, 201);
+    text-align: center;
+    font-weight: bold;
+    width: 65px;
+    height: 25px;
+    margin: auto;
+    text-transform: uppercase;
+    color: black;
+    padding: 2px;
+}
+
+.viewOneLesson button:hover {
+    box-shadow: 0px 1px 2px 1px rgb(204, 201, 201);
+    cursor: pointer;
+}
+
+.viewOneLesson h2 {
+    padding-bottom: 10px;
+}
+
+.imgLesson {
+    width: 210px;
+    height: 140px;
+    padding: 5px;
+    border: 3px solid rgb(245, 245, 245);
+}
+
+
+.exampleStudents {
+    color: rgba(199, 55, 55, 0.952);
+    /* color: rgba(0, 0, 0); */
+}
+.exampleStudents:hover {
+    color: rgba(0, 0, 0);
+    cursor: pointer;
+}
+
+
+/* ----------------------------- */
+
+.singleItemAssignment {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr .9fr;
+}
+
+
+/* ----------------------------- */
+
+
+
+footer {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    top: 90%;
+    left: 50%;
+    width: 70%;
+}
+
+.fa {
+    color: rgb(128, 128, 128);
+    font-size: 2em;
+    text-decoration-line: none;
+    padding: 10px;
+}
+
+.fa:hover {
+    color: rgba(199, 55, 55, 0.952);
+}
+
+
+/* ----------------------------- */
+
+.viewComments {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(199, 55, 55, 0.8);
+    border-radius: 5%;
+    max-width: 300px;
+}
+.viewComments button {
+    /* background-color: rgba(25, 202, 19, 0.8); */
+    border-radius: 5%;
+    /* font-weight: bold; */
+    font-size: .5em;
+    width: 45px;
+    height: 20px;
+    padding: 3px;
+}
+.viewComments button:hover {
+    cursor: pointer;
+    /* background-color: rgba(25, 243, 18, 0.973); */
+}
+
+.viewComments button:disabled {
+    /* background-color: rgba(100, 202, 100, 0.5); */
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.viewComments button:disabled:hover {
+    cursor: default;
+}
+
+ol {
+    font-size: 1.3em;
+    text-align: left;
+    line-height: 30px;
+    padding-bottom: 20px;
+    color: rgb(245, 245, 245);
+}
+
+li {
+    font-size: .7em;
+    line-height: 10px;
+    padding-bottom: 5px;
+}
+
+li h6 {
+    font-size: .9em;
+    line-height: 14px;
+    padding: 5px;
+}
+
+
+@media (max-width: 320px) {
+    p {
+        font-size: 0.9em;
+    }
+    .othersSearches button {
+        width: 70px;
+        height: 32px;
+        font-size: .8em;
+    }
+    .othersSearches button:hover {
+        width: 73px;
+        height: 34px;
+    }
+    .noLineTwo {
+        width: 70px;
+        height: 32px;
+    }
+    .othersForm input {
+        width: 75px;
+        height: 25px;
+    }
+    .othersContain {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .lessonsArrangeWrap {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (min-width: 560px) {
+    .topLeft,
+    .topRight,
+    .bottomLeft,
+    .bottomRight {
+        position: absolute;
+        width: 10%;
+        height: 15%;
+    }
+    .login {
+        font-size: 1em;
+        top: 12%;
+        left: 90%;
+    }
+    .othersSearches {
+        flex-direction: row;
+    }
+    .singleItemOthers p {
+        text-align: center;
+    }
+    .composition,
+    .prism {
+        font-size: 1.5em;
+        background-size: auto 150px;
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media (min-width: 750px) {
+    .login {
+        font-size: 1em;
+        top: 11%;
+        left: 90%;
+    }
+    .circle {
+        width: 120px;
+        height: 120px;
+    }
+    .aboutWrap {
+        grid-template-rows: .1fr .15fr .15fr .15fr .3fr;
+    }
+    h3,
+    h5,
+    p {
+        padding: 20px;
+    }
+    .mastersWrap h3 {
+        font-size: 2em;
+    }
+    .mastersPage {
+        font-size: 1.5em;
+        width: 25%;
+    }
+    .othersWrap {
+        grid-template-rows: 5% 15% 80%;
+    }
+    .othersContain,
+    .lessonsArrangeWrap {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1015px) {
+    footer {
+        width: 50%;
+    }
+    .fa {
+        padding: 40px;
+        font-size: 3em;
+    }
+    .aboutWrap h3 {
+        font-size: 1.4em;
+        letter-spacing: 1px;
+    }
+    .mastersWrap h3 {
+        font-size: 2.5em;
+        letter-spacing: 2px;
+    }
+    .othersContain {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 50% 50%;
+        padding-top: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .lessonsArrangeWrap {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .lessonsArrangeInside {
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 50% 50%;
+    }
+
+    .singleItemOthers {
+        /* font-size: 0.45em; */
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 0px;
+        line-height: 80px;
+    }
+    .singleItemOthers p {
+        line-height: 28px;
+        text-align: left;
+    }
+
+    .lessonsArrange {
+        grid-template-rows: 0.25fr 0.75fr;
+    }
+
+    .navRoom {
+        /* text-align: left; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .viewOneLesson {
+        justify-content: space-evenly;
+        line-height: 25px;
+    }
+    .imgLesson {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+    }
+    .viewOneLesson span {
+        text-align: left;
+    }
+    .viewOneLesson h2 {
+        padding-bottom: 0px;
+    }
+
+    .imgLessonWrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .bigViewExample {
+        position: absolute;
+        /* transform: translateX(-50%) translateY(-50%); */
+        top: 0;
+        left: 0;
+    }
+    
+    .exampleImgs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .stubbornFour {
+        padding-left: 14px;
+    }
+    .stubbornThree {
+        padding-left: 24px;
+    }
+    .stubbornTwo {
+        padding-left: 4px;
+    }
+    .stubbornOne {
+        padding-left: 30px;
+    }
+
+}
+
+@media (min-width: 1367px) {
+    .topLeft {
+        border-left: 7px solid black;
+        border-top: 7px solid black;
+        left: 9px;
+        top: 9px;
+    }
+    .topRight {
+        border-right: 7px solid black;
+        border-top: 7px solid black;
+        right: 9px;
+        top: 9px;
+    }
+    .bottomLeft {
+        border-left: 7px solid black;
+        border-bottom: 7px solid black;
+        left: 9px;
+        bottom: 9px;
+    }
+    .bottomRight {
+        border-right: 7px solid black;
+        border-bottom: 7px solid black;
+        right: 9px;
+        bottom: 9px;
+    }
+    .noLine,
+    .lessons {
+        font-size: 0em;
+        width: 20px;
+        height: 20px;
+    }
+    .login {
+        top: 9%;
+        left: 90%;
+    }
+    .login:hover {
+        font-size: 1.15em;
+    }
+    .noLine:hover,
+    .lessons:hover {
+        font-size: 1.2em;
+        width: 80px;
+        height: 32px;
+    }
+    .circle {
+        width: 150px;
+        height: 150px;
+        border: 5px solid black;
+    }
+    .others {
+        top: 32%;
+    }
+    .contact {
+        top: 68%;
+    }
+    .about {
+        left: 67%;
+    }
+    .masters {
+        left: 33%;
+    }
+    .aboutWrap,
+    .mastersWrap,
+    .othersWrap,
+    .lessonsLandingWrap,
+    .lessonsArrangeWrap {
+        right: 40px;
+        bottom: 40px;
+        top: 40px;
+        left: 40px;
+    }
+    .mastersWrap {
+        grid-template-rows: .1fr .25fr .45fr;
+    }
+    .mastersPage {
+        width: 15%;
+    }
+    h3,
+    h5,
+    p,
+    ul {
+        padding-left: 50px;
+    }
+    .othersContain {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 25%);
+        padding: 25px;
+    }
+    .singleItemOthers p {
+        line-height: 22px;
+        height: 130px;
+    }
+
+    .viewComments {
+        /* position: absolute; */
+        z-index: +5;
+        position: fixed;
+        /* transform: translateX(-50%) translateY(-50%); */
+        top: 2.5%;
+        right: 1.7%;
+    }
+}
+
+@media (min-width: 2000px) {
+    h3,
+    h5,
+    p,
+    ul {
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+    }
+    .othersContain {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 20%);
+        padding: 30px;
+    }
+    .singleItemOthers p {
+        line-height: 22px;
+        height: 95px;
+    }
+}
+
+@media (min-width: 2800px) {
+    .singleItemOthers p {
+        text-align: center;
+    }
+}
