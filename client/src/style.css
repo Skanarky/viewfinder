@@ -582,6 +582,12 @@ footer {
     color: rgba(199, 55, 55, 0.952);
 }
 
+fa-thumbs-up,
+fa-star,
+fa-comment {
+    background-color: rgb(245, 245, 245);
+}
+
 
 /* ----------------------------- */
 
