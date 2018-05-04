@@ -19,7 +19,9 @@ class YoutubeVideo extends React.Component {
         return (
             <div className="singleItemOthers">
                 <p>{title}</p>
-                <iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe>
+                <div>
+                    <iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe>
+                </div>
                 <div>
                     <i onClick={this.favoritize} className="fa fa-star"></i>
                 </div>
