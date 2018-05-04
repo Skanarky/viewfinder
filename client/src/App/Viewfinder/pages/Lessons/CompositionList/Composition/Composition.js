@@ -24,9 +24,9 @@ class Composition extends React.Component {
     }
 
     toggleViewLesson = (event) => {
-        // const { toggleViewBelow } = this.props;
+        const { toggleViewBelow } = this.props;
         this.setState({ ...this.state, isViewingLesson: !this.state.isViewingLesson });
-        // toggleViewBelow();
+        toggleViewBelow();
     }
 
     toggleViewingExamples = (event) => {
