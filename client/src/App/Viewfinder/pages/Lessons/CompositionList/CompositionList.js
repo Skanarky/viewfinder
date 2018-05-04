@@ -7,17 +7,17 @@ import { getLessons } from "./../../../../../redux/lessons.js";
 import Composition from "./Composition/Composition.js";
 
 class CompositionList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.initialState = {
-            isBelow: false
-        }
-        this.state = this.initialState;
-    };
+    // constructor(props) {
+    //     super(props);
+    //     this.initialState = {
+    //         isBelow: false
+    //     }
+    //     this.state = this.initialState;
+    // };
 
-    toggleViewBelow = (event) => {
-        this.setState({ ...this.state, isBelow: !this.state.isBelow });
-    }
+    // toggleViewBelow = (event) => {
+    //     this.setState({ ...this.state, isBelow: !this.state.isBelow });
+    // }
 
 
     componentDidMount = () => {
@@ -32,11 +32,11 @@ class CompositionList extends React.Component {
         const { isBelow } = this.state;
 
         const presentCompositions = data.map((composition, i) => <Composition key={composition._id + i}
-            idLessonComposition={composition._id} index={i} toggleViewBelow={this.toggleViewBelow}
+            idLessonComposition={composition._id} index={i} /*toggleViewBelow={this.toggleViewBelow}*/
             {...composition}></Composition>);
 
         return (
-            <div style={isBelow ? { background: "rgb(128, 128, 128, .5)" } : { backgroundColor: "rgb(245, 245, 245)" }} className="lessonsView">
+            <div /*style={isBelow ? { background: "rgb(128, 128, 128, .5)" } : { backgroundColor: "rgb(245, 245, 245)" }}*/ className="lessonsView">
                 <div className="topLeft"></div>
                 <div className="topRight"></div>
                 <div className="bottomLeft"></div>
