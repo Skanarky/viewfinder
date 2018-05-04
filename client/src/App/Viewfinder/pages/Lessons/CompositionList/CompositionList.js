@@ -36,7 +36,7 @@ class CompositionList extends React.Component {
             {...composition}></Composition>);
 
         return (
-            <div /*style={isBelow ? { background: "rgb(128, 128, 128, .5)" } : { backgroundColor: "rgb(245, 245, 245)" }}*/ className="lessonsView">
+            <div style={isBelow ? { background: "rgb(128, 128, 128, .5)" } : { backgroundColor: "rgb(245, 245, 245)" }} className="lessonsView">
                 <div className="topLeft"></div>
                 <div className="topRight"></div>
                 <div className="bottomLeft"></div>
