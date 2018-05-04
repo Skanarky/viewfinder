@@ -60,15 +60,15 @@ class Others extends React.Component {
                 <div className="othersSearches">
                     <form className="othersForm">
                         <div>
-                            <input onChange={this.handleChange} name="searchWordUdemy" value={searchWordUdemy} type="text" placeholder="Key Word" />
+                            <input onChange={this.handleChange} name="searchWordUdemy" value={searchWordUdemy} type="text" placeholder="Udemy" />
                         </div>
-                        <button onClick={this.handleSubmitUdemy}><Link className="noLineTwo" to="/others/udemy">Udemy</Link></button>
+                        <button onClick={this.handleSubmitUdemy}><Link className="noLineTwo" to="/others/udemy">Search</Link></button>
                     </form>
                     <form className="othersForm">
                         <div>
-                            <input onChange={this.handleChange} name="searchWordYouTube" value={searchWordYouTube} type="text" placeholder="Key Word" />
+                            <input onChange={this.handleChange} name="searchWordYouTube" value={searchWordYouTube} type="text" placeholder="YouTube" />
                         </div>
-                        <button onClick={this.handleSubmitYouTube}><Link className="noLineTwo" to="/others/youtube">YouTube</Link></button>
+                        <button onClick={this.handleSubmitYouTube}><Link className="noLineTwo" to="/others/youtube">Search</Link></button>
                     </form>
                 </div>
                 <Switch>
