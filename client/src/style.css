@@ -175,7 +175,6 @@
     bottom: 20px;
     top: 20px;
     left: 20px;
-    background-image: url()
 }
 
 /* ----------------------------- */
@@ -294,6 +293,7 @@ ul {
 .othersWrap {
     display: grid;
     grid-template-rows: 10% 30% 60%;
+    overflow: scroll;
 }
 
 .othersSearches {
@@ -370,7 +370,7 @@ ul {
     padding-top: 15px;
     padding-left: 28px;
     padding-right: 28px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .noLineThree {
@@ -746,6 +746,10 @@ li h6 {
         font-size: 2.5em;
         letter-spacing: 2px;
     }
+
+    .othersWrap {
+        overflow: none;
+    }
     .othersContain {
         display: grid;
         grid-template-rows: 50% 50%;
@@ -753,6 +757,7 @@ li h6 {
         padding-top: 20px;
         padding-left: 50px;
         padding-right: 50px;
+        overflow: scroll;
     }
 
     .lessonsArrangeWrap {
