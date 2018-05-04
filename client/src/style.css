@@ -186,6 +186,10 @@
     overflow: scroll;
 }
 
+.noLineRed {
+    text-decoration: none;
+}
+
 .red {
     text-transform: uppercase;
     color: rgba(199, 55, 55, 0.952);
