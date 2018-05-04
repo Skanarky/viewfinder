@@ -826,6 +826,7 @@ li h6 {
     .exampleImgs {
         display: flex;
         flex-wrap: wrap;
+        background-color: rgb(245, 245, 245);
     }
 
     .stubbornFour {

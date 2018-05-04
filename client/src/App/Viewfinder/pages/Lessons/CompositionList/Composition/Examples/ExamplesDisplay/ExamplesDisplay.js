@@ -100,7 +100,7 @@ class ExamplesDisplay extends React.Component {
                 idComment={comment._id} index={i} loadingComment={loading} errMsgComment={errMsg}
                 {...comment}></Comment>);
         return (
-            <div key={exampleImageId + index}>
+            <div>
                 <div>User Name {exampleImageId.charAt(exampleImageId.length - 1)}</div>
                 <img className="imgLesson" src={imageUrl} alt={shortDescription} />
                 <div>
