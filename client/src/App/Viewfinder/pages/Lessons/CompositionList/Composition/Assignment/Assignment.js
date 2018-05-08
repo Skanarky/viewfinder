@@ -110,11 +110,6 @@ class Assignment extends React.Component {
             <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} idImage={image._id} {...image}
                 idAssignment={idAssignment}></ImagesList>
         );
-        //comments?!    
-        // const presentComments = data.filter(comment => comment.issueId === id).map((comment, i) =>
-        //     <CommentDisplay key={comment._id + i}
-        //         idComment={comment._id} index={i} loadingComment={loading} errMsgComment={errMsg}
-        //         {...comment}></CommentDisplay>);
 
         const styleAssignment = {
             backgroundColor: "rgb(245, 245, 245, .01)",
@@ -159,7 +154,7 @@ class Assignment extends React.Component {
                                             <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
                                         </div>
                                         <span>{instructions}</span>
-                                        <div style={{ lineHeight: "30px", width: "210px", margin: "0 auto", fontSize: "1.2em" }} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Students</div>
+                                        <div style={{ lineHeight: "30px", width: "210px", margin: "0 auto", fontSize: "1.2em" }} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">View Examples from Students</div>
                                         {isViewingExamples ?
                                             <div className="bigViewExample" style={styleEx} >
                                                 <button onClick={this.toggleViewingExamples}>Close</button>

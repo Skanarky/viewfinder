@@ -79,7 +79,7 @@ class Composition extends React.Component {
                             <img className="imgLesson" src={exampleImgThreeUrl} alt="Lesson for Composition" />
                         </div>
                         <span>{instructions}</span>
-                        <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">Check Examples from Students</div>
+                        <div style={{width:"210px", margin: "0 auto", fontSize: "1.2em"}} onClick={this.toggleViewingExamples} className="exampleStudents" to="#">View Examples from Students</div>
                         {isViewingExamples ?
                             <div className="bigViewExample" style={styleEx} >
                                 <button onClick={this.toggleViewingExamples}>Close</button>
