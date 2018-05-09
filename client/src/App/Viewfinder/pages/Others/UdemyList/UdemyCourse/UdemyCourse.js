@@ -18,7 +18,7 @@ class UdemyCourse extends React.Component {
         return (
             <div className="singleItemOthers">
                 <Link to={urlCourse} target="_blank" className="noLineThree"><p>{title}; Price: {price}</p></Link>
-                <Link to={urlCourse} target="_blank" className="noLineThree"><img src={image_480x270} alt="Udemy course" /></Link>
+                <Link to={urlCourse} target="_blank" className="noLineThree"><img src={image_480x270} alt={title} /></Link>
                 <div>
                     <i onClick={this.favoritize} className="fa fa-star"></i>
                 </div>
