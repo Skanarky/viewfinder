@@ -395,6 +395,7 @@ ul {
 iframe {
     width: 260px;
     height: 146.3px;
+    z-index: +10;
 }
 
 .noLineThree img:hover,
