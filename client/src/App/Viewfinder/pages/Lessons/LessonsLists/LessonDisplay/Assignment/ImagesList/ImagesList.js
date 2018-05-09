@@ -2,7 +2,6 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { deleteImage } from "./../../.././../../../../../redux/images.js";
-// import Image from "./Image/Image.js";
 
 class ImagesList extends React.Component {
 

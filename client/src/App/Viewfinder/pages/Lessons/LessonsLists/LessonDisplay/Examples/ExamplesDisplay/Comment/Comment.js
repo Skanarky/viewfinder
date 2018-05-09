@@ -34,4 +34,3 @@ class Comment extends React.Component {
 }
 
 export default connect(null, { deleteComment })(Comment);
-// export default Comment;

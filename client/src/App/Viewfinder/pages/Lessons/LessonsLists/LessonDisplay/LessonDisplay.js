@@ -91,17 +91,10 @@ class LessonDisplay extends React.Component {
                         <div>
                             <button onClick={this.toggleViewLesson}>back</button>
                             <button onClick={this.toggleViewingAssignment}>exercise</button>
-                            {/* <button onClick={this.toggleViewLesson}><Link to="/lessons/composition/assignment" className="noLineThree" style={{ color: "black" }}>enroll</Link></button> */}
                         </div>
                         {isViewingAssignment ? presentAssignment : ""}
                     </div >
                     : ""}
-
-                {/* <Switch>
-                    <Route path="/lessons/composition/assignment"
-                        component={presentAssignment}
-                    ></Route>
-                </Switch> */}
             </div >
         )
     }

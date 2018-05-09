@@ -35,8 +35,6 @@ class Examples extends React.Component {
     }
 
     editImageTrigger = (id, imageEdited) => {
-        //  shoot off put request
-        //replace old image with new image
         const { images } = this.state;
         axios.put(`/api/images/${id}`, imageEdited)
             .then(response => {
@@ -96,8 +94,4 @@ class Examples extends React.Component {
     }
 }
 
-
-
-
-// export default connect(stateToProps, { getImages, editIssue, addComment, getComments, deleteComment })(Assignment);
 export default Examples;

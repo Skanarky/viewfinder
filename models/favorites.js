@@ -10,7 +10,6 @@ const favoriteSchema = new Schema({
     // },
     imageId: {
         type: mongoose.Schema.Types.ObjectId,
-        // required: true,
         ref: "images"
     },
     videoInfo: Object,

@@ -35,13 +35,11 @@ class Viewfinder extends React.Component {
                 </div>
                 <Link className="noLine others" to="/others"><span>Others</span></Link>
                 <Link onClick={this.toggleContactView} className="noLine contact" to="#"><span>Contact</span></Link>
-                {/* <Link className="noLine contact" to="/contact"><span>Contact</span></Link> */}
                 <Link className="noLine about" to="/about"><span>About</span></Link>
                 <Link className="noLine masters" to="/masters"><span>Masters</span></Link>
                 {contactOn ? <Contact></Contact> : ""}
                 <Switch>
                     <Route path="/about" component={About}></Route>
-                    {/* <Route path="/contact" component={Contact}></Route> */}
                     <Route path="/masters" component={Masters}></Route>
                     <Route path="/others" component={Others}></Route>
                     <Route path="/lessons" component={Lessons}></Route>

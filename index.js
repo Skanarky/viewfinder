@@ -14,7 +14,6 @@ const imageRouter = require("./routes/images.js");
 const commentRouter = require("./routes/comments.js");
 const noteRouter = require("./routes/notes.js");
 const favoriteRouter = require("./routes/favorites.js");
-// const exampleUserRouter = require("./routes/examplesUsers.js");
 const userRouter = require("./routes/users.js");
 
 const app = express();
@@ -36,7 +35,6 @@ app.use("/api/images", imageRouter);
 app.use("/api/comments", commentRouter);
 app.use("/api/notes", noteRouter);
 app.use("/api/favorites", favoriteRouter);
-//app.use("/api/examples", exampleUserRouter);
 app.use("/api/users", userRouter);
 
 // route for deployment

@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { addImage, getImages } from "./../../.././../../../../redux/images.js";
-// import { addComment, getComments, deleteComment } from "./../../../../../redux/comments.js";
 
 import Examples from "../Examples/Examples.js";
-// import CommentDisplay from "./CommentDisplay/CommentDisplay.js";
 import ImagesList from "./ImagesList/ImagesList.js";
 
 class Assignment extends React.Component {
@@ -36,30 +34,6 @@ class Assignment extends React.Component {
         });
     }
 
-    // handleClick = (event) => {
-    //     const { deleteIssue, deleteComment, id } = this.props;
-    //     const { data } = this.props;
-    //     deleteIssue(id);
-    //     data.filter(comment => comment.issueId === id).map((comment, i) => deleteComment(comment._id));
-    // }
-
-    // toggleComment = (event) => {
-    //     this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
-    // }
-
-    // toggleCommentBack = (event) => {
-    //     this.setState({ ...this.state, isCommenting: false });
-    // }
-
-    // handleClickUpVote = (event) => {
-    //     const { editIssue, id, upVotes } = this.props;
-    //     editIssue(id, { upVotes: upVotes + 1 });
-    // }
-    // handleClickDownVote = (event) => {
-    //     const { editIssue, id, downVotes } = this.props;
-    //     editIssue(id, { downVotes: downVotes + 1 });
-    // }
-
     componentDidMount = () => {
         const { getImages } = this.props;
         getImages();
@@ -86,7 +60,6 @@ class Assignment extends React.Component {
 
     render = () => {
         // console.log(this.props);
-        // const { isCommenting } = this.state;
         const { imgUrlUpload, noteText } = this.state.input;
         const { isViewingExamples } = this.state;
 
@@ -184,30 +157,6 @@ class Assignment extends React.Component {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* <div className="votes">
-                                <div>
-                                    Votes: {(upVotes + downVotes) > 0 ? (upVotes + downVotes) : 0}
-                                </div>
-                                <div>
-                                    <i onClick={this.handleClickUpVote} className="fa fa-thumbs-up"></i>
-                                    <i onClick={this.handleClickDownVote} className="fa fa-thumbs-down"></i>
-                                    <i onClick={this.toggleComment} className="fa fa-comment"></i>
-                                </div>
-                            </div>
-                            {isCommenting ?
-                                <div className="view-comments">
-                                    <button onClick={this.toggleCommentBack}>Go Back</button>
-                                    <form onSubmit={this.handleSubmit}>
-                                        <input onChange={this.handleChange} name="container"
-                                            value={container} type="text" placeholder="Add a Comment" />
-                                        <button disabled={container.length < 3}>Post</button>
-                                    </form>
-                                    <ol>Comments:
-                            {presentComments}
-                                    </ol>
-                                </div>
-                                : ""} */}
                         </div>
                     </div>
                 </div>
