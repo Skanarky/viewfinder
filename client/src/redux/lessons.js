@@ -11,7 +11,8 @@ const lessonReducer = (state = initialState, action) => {
         case "GET_LESSONS":
             return {
                 ...state,
-                data: action.lessons,
+                
+                data: [...state.data, ...action.lessons],
                 loading: false
             }
         // case "ADD_ISSUE":
