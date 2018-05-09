@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class YoutubeVideo extends React.Component {
 
@@ -20,10 +19,7 @@ class YoutubeVideo extends React.Component {
         return (
             <div className="singleItemOthers">
                 <p>{title}</p>
-                <Link to="#" className="noLineThree"><iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe></Link>
-                {/* <div>
-                    <iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe>
-                </div> */}
+                <iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe>
                 <div>
                     <i onClick={this.favoritize} className="fa fa-star"></i>
                 </div>
