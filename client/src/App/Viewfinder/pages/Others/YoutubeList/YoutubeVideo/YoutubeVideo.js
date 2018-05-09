@@ -19,7 +19,7 @@ class YoutubeVideo extends React.Component {
         return (
             <div className="singleItemOthers">
                 <p>{title}</p>
-                <div>
+                <div className="toRoll">
                     <iframe title={title} alt={description} src={urlVideo} allowFullScreen="allowFullScreen" ></iframe>
                 </div>
                 <div>
