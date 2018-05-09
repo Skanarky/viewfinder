@@ -16,9 +16,9 @@ class Examples extends React.Component {
     }
 
     componentDidMount = () => {
-        const { idLessonComposition } = this.props;
+        const { idLesson } = this.props;
         // console.log(this.props.match);
-        axios.get(`/api/images/?lessonId=${idLessonComposition}`)
+        axios.get(`/api/images/?lessonId=${idLesson}`)
             .then(response => {
                 // console.log(response.data);
                 const { data } = response;

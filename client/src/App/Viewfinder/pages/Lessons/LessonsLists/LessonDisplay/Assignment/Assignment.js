@@ -69,10 +69,10 @@ class Assignment extends React.Component {
         event.preventDefault();
         const { imgUrlUpload } = this.state.input;
         // need userId later
-        const { addImage, idAssignment, idLessonComposition } = this.props;
+        const { addImage, idAssignment, idLesson } = this.props;
         const imgUpload = {
             assignId: idAssignment,
-            lessonId: idLessonComposition,
+            lessonId: idLesson,
             imageUrl: imgUrlUpload,
             likes: 0
         }
@@ -93,7 +93,7 @@ class Assignment extends React.Component {
         // loading, err, id
         const { data, loading, errMsg, loadingAssignment, 
             errMsgAssignment, idAssignment, 
-            idLessonComposition, toggleViewLesson } = this.props;
+            idLesson, toggleViewLesson } = this.props;
 
         const styleEx = {
             backgroundColor: "rgba(245, 245, 245)",
@@ -159,7 +159,7 @@ class Assignment extends React.Component {
                                             <div className="bigViewExample" style={styleEx} >
                                                 <button onClick={this.toggleViewingExamples}>Close</button>
                                                 <div>
-                                                    <Examples shortDescription={shortDescription} key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                                    <Examples shortDescription={shortDescription} key={idLesson} idLesson={idLesson}></Examples>
                                                 </div>
                                             </div> : ""}
                                         <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>

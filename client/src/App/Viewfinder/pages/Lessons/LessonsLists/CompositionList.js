@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { getLessons } from "./../../../../../redux/lessons.js";
 
-import Composition from "./Composition/Composition.js";
+import LessonDisplay from "./LessonDisplay/LessonDisplay.js";
 
 class CompositionList extends React.Component {
     constructor(props) {
@@ -23,7 +23,6 @@ class CompositionList extends React.Component {
     componentDidMount = () => {
         const { getLessons } = this.props;
         getLessons("composition");
-        // getAssignments("composition");
     }
 
     render = () => {
@@ -31,9 +30,9 @@ class CompositionList extends React.Component {
         const { data/*, loading, errMsg */ } = this.props;
         const { isBelow } = this.state;
 
-        const presentCompositions = data.map((composition, i) => <Composition key={composition._id + i}
-            idLessonComposition={composition._id} index={i} toggleViewBelow={this.toggleViewBelow}
-            {...composition}></Composition>);
+        const presentLesson = data.map((lesson, i) => <LessonDisplay key={lesson._id + i}
+            idLesson={lesson._id} index={i} toggleViewBelow={this.toggleViewBelow}
+            {...lesson}></LessonDisplay>);
 
         return (
             <div style={isBelow ? { background: "rgb(128, 128, 128, .5)" } : { backgroundColor: "rgb(245, 245, 245)" }} className="lessonsView">
@@ -48,7 +47,7 @@ class CompositionList extends React.Component {
                             <Link className="viewfinder" to="/lessons"><span>Lessons</span></Link>
                         </div>
                         <div className="lessonsArrangeInside">
-                            {presentCompositions}
+                            {presentLesson}
                         </div>
                     </div>
                 </div>

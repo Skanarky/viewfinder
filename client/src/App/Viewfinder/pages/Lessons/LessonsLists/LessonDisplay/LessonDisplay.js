@@ -6,7 +6,7 @@ import Assignment from "./Assignment/Assignment.js";
 import Examples from "./Examples/Examples.js";
 import { getAssignment } from "./../../../../../../redux/assignments.js";
 
-class Composition extends React.Component {
+class LessonDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
@@ -19,8 +19,8 @@ class Composition extends React.Component {
 
     componentDidMount = () => {
         //provide lessonId AND userId
-        const { getAssignment, idLessonComposition/*, userId*/ } = this.props;
-        getAssignment(idLessonComposition);
+        const { getAssignment, idLesson/*, userId*/ } = this.props;
+        getAssignment(idLesson);
     }
 
     toggleViewLesson = (event) => {
@@ -41,7 +41,7 @@ class Composition extends React.Component {
         // console.log(this.props);
         const { title, shortDescription, exampleImgOneUrl
             , exampleImgTwoUrl, exampleImgThreeUrl, instructions
-            , googleLink, data, loading, errMsg, idLessonComposition } = this.props;
+            , googleLink, data, loading, errMsg, idLesson } = this.props;
         const { isViewingLesson, isViewingExamples, isViewingAssignment } = this.state;
         const styleP = {
             textAlign: "center",
@@ -58,11 +58,11 @@ class Composition extends React.Component {
         }
 
         const presentAssignment = data.filter(assignment =>
-            assignment.lessonId._id === idLessonComposition)
+            assignment.lessonId._id === idLesson)
             .map((assignment, i) =>
                 <Assignment idAssignment={assignment._id} index={i}
                     key={assignment._id + i} {...assignment}
-                    loadingAssignment={loading} idLessonComposition={idLessonComposition}
+                    loadingAssignment={loading} idLesson={idLesson}
                     toggleViewLesson={this.toggleViewLesson} errMsgAssignment={errMsg} />);
 
         return (
@@ -84,7 +84,7 @@ class Composition extends React.Component {
                             <div className="bigViewExample" style={styleEx} >
                                 <button onClick={this.toggleViewingExamples}>Close</button>
                                 <div>
-                                    <Examples key={idLessonComposition} idLessonComposition={idLessonComposition}></Examples>
+                                    <Examples key={idLesson} idLesson={idLesson}></Examples>
                                 </div>
                             </div> : ""}
                         <Link style={{width:"190px", margin: "0 auto", textDecoration: "none"}} to={googleLink} target="_blank">Examples from the Web</Link>
@@ -111,4 +111,4 @@ function stateToProps(globalState) {
     return globalState.assignments;
 }
 
-export default connect(stateToProps, { getAssignment })(Composition);
+export default connect(stateToProps, { getAssignment })(LessonDisplay);

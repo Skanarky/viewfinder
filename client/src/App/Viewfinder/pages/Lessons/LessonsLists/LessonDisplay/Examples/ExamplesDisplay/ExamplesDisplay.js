@@ -44,14 +44,6 @@ class ExamplesDisplay extends React.Component {
         // getNotes();
     }
 
-    // componentWillReceiveProps = (newProps) => {
-    //     // console.log(newProps.likes)
-    //     if (this.props.likes !== newProps.likes) {
-    //         const { editImage, exampleImageId, likes } = newProps;
-    //         editImage(exampleImageId, { likes: likes + 1 });
-    //     }
-    // }
-
     toggleComment = (event) => {
         this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
     }
