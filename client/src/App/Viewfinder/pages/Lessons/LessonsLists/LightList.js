@@ -47,7 +47,9 @@ class LightList extends React.Component {
                             <Link className="viewfinder" to="/lessons"><span>Lessons</span></Link>
                         </div>
                         <div className="lessonsArrangeInsideLight">
-                            {presentLesson}
+                            <div style={{display: "flex", flexDirection: "column"}}>
+                                {presentLesson}
+                            </div>
                         </div>
                     </div>
                 </div>
