@@ -46,7 +46,7 @@ class LightList extends React.Component {
                             <Link className="viewfinder" to="/"><span>Viewfinder</span></Link>
                             <Link className="viewfinder" to="/lessons"><span>Lessons</span></Link>
                         </div>
-                        <div className="lessonsArrangeInside">
+                        <div className="lessonsArrangeInsideLight">
                             {presentLesson}
                         </div>
                     </div>
