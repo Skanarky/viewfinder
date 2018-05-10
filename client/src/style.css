@@ -759,9 +759,9 @@ li h6 {
         display: flex;
         flex-direction: column;
         padding: 0;
-        height: 100%;
     }
     .lessonsArrangeInside {
+        height: 100%;
         display: grid;
         grid-template-rows: 50% 50%;
         grid-template-columns: 50% 50%;
