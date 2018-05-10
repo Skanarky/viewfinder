@@ -777,7 +777,7 @@ li h6 {
         text-align: left;
     }
     .lessonsArrange {
-        grid-template-rows: 0.25fr 0.75fr;
+        grid-template-rows: 0.15fr 0.85fr;
     }
     .navRoom {
         /* text-align: left; */
