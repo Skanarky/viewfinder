@@ -778,6 +778,7 @@ li h6 {
     }
     .lessonsArrange {
         grid-template-rows: 0.15fr 0.85fr;
+        height: 100%;
     }
     .navRoom {
         /* text-align: left; */
