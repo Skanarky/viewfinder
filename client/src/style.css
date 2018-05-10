@@ -765,12 +765,6 @@ li h6 {
         grid-template-rows: 50% 50%;
         grid-template-columns: 50% 50%;
     }
-
-    .lessonsArrangeInsideLight {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
     .singleItemOthers {
         /* font-size: 0.45em; */
         padding-left: 30px;
