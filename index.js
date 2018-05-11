@@ -18,8 +18,8 @@ const userRouter = require("./routes/users.js");
 
 const app = express();
 
-const port = process.env.PORT || 3001;
-const db = process.env.MONGODB_URI || "mongodb://localhost:27017/learn-photography";
+const port = process.env.PORT;
+const db = process.env.MONGODB_URI;
 
 //middleware
 app.use(bodyParser.json());
