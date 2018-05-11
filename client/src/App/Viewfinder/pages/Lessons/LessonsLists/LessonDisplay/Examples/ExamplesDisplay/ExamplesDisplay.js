@@ -1,17 +1,13 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
 import { addFavorite } from "../../../.././../../../../redux/favorites.js";
 import { addComment, getComments } from "../../../.././../../../../redux/comments.js";
 // import { editImage } from "../../../.././../../../../redux/images.js";
-// import { addComment, getComments, deleteComment } from "./../../../../../redux/comments.js";
+// import { deleteComment } from "./../../../../../redux/comments.js";
 
 import Comment from "./Comment/Comment.js";
-
-// import Examples from "../Examples/Examples.js";
-// import ImagesList from "./ImagesList/ImagesList.js";
 
 class ExamplesDisplay extends React.Component {
     constructor(props) {
@@ -45,7 +41,12 @@ class ExamplesDisplay extends React.Component {
     }
 
     toggleComment = (event) => {
-        this.setState({ ...this.state, isCommenting: !this.state.isCommenting });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isCommenting: !prevState.isCommenting
+            }
+        });
     }
 
     toggleCommentBack = (event) => {

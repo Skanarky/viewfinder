@@ -12,12 +12,7 @@ class App extends React.Component {
     };
 
     toggleIsOn = () => {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                isOn: true
-            }
-        });
+        this.setState({ ...this.state, isOn: true });
     }
 
     render = () => {

@@ -25,16 +25,31 @@ class LessonDisplay extends React.Component {
 
     toggleViewLesson = (event) => {
         const { toggleViewBelow } = this.props;
-        this.setState({ ...this.state, isViewingLesson: !this.state.isViewingLesson });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isViewingLesson: !prevState.isViewingLesson
+            }
+        });
         toggleViewBelow();
     }
 
     toggleViewingExamples = (event) => {
-        this.setState({ ...this.state, isViewingExamples: !this.state.isViewingExamples });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isViewingExamples: !prevState.isViewingExamples
+            }
+        });
     }
 
     toggleViewingAssignment = (event) => {
-        this.setState({ ...this.state, isViewingAssignment: !this.state.isViewingAssignment });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isViewingAssignment: !prevState.isViewingAssignment
+            }
+        });
     }
 
     render = () => {

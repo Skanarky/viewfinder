@@ -18,7 +18,12 @@ class Viewfinder extends React.Component {
     };
 
     toggleContactView = (event) => {
-        this.setState({ ...this.state, contactOn: !this.state.contactOn });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                contactOn: !prevState.contactOn
+            }
+        });
     }
 
     render = () => {

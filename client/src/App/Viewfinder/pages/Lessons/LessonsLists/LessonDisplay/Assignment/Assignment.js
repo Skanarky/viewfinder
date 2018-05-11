@@ -55,7 +55,12 @@ class Assignment extends React.Component {
     }
 
     toggleViewingExamples = (event) => {
-        this.setState({ ...this.state, isViewingExamples: !this.state.isViewingExamples });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isViewingExamples: !prevState.isViewingExamples
+            }
+        });
     }
 
     render = () => {

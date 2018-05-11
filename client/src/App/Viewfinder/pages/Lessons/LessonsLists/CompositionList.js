@@ -16,7 +16,12 @@ class CompositionList extends React.Component {
     };
 
     toggleViewBelow = (event) => {
-        this.setState({ ...this.state, isBelow: !this.state.isBelow });
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isBelow: !prevState.isBelow
+            }
+        });
     }
 
 
