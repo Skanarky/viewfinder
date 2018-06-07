@@ -41,7 +41,7 @@ const imageReducer = (state = initialState, action) => {
         case "DELETE_IMAGE":
             return {
                 ...state,
-                data: state.data.filter((image) => image._id !== action.id),
+                data: state.data.filter((image) => image.public_id !== action.id),
                 loading: false
             }
         case "ERR_MSG":

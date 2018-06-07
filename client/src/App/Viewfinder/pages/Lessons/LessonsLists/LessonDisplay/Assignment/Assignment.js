@@ -93,7 +93,9 @@ class Assignment extends React.Component {
             , googleLink } = this.props.lessonId;
 
         const presentImages = data.filter(image => image.assignId._id === idAssignment).map((image, i) =>
-            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} idImage={image._id} {...image}
+            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} 
+            idImage={image._id} {...image}
+            idImageCloudinary={image.public_id} {...image}
                 idAssignment={idAssignment}></ImagesList>
         );
 
