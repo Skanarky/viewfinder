@@ -1,7 +1,22 @@
 const express = require("express");
+const multer = require("multer");
+const fs = require("fs");
+const cloudinary = require("cloudinary");
+
 const imageRouter = express.Router();
 
 const ImageModel = require("../models/images.js");
+
+const upload = multer({
+    dest: "../tmp/",
+    limits: { fileSize: 5000000 }
+});
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
+});
 
 imageRouter.route("/")
     .get((req, res) => {
@@ -10,16 +25,38 @@ imageRouter.route("/")
             res.status(200).send(foundImages);
         });
     })
-    .post((req, res) => {
-        const newImage = new ImageModel(req.body);
-        newImage.save((err, addedImage) => {
-            if (err) return res.send(err);
-            ImageModel.populate(addedImage, { path: "assignId" }, (err, popImage) => {
-                if (err) return res.send(err);
-                res.status(201).send(popImage);
+    .post(upload.single("file"), (req, res) => {
+        console.log("uploaded to multer");
+        console.log(req.file);
+
+        cloudinary.v2.uploader.upload(req.file.path,
+            {crop: "fit", width: 900, height: 600, format: "jpg", quality: 80},
+            (err, result) => {
+                if (err) return res.status(500).send(err);
+                console.log("uploaded to cloudinary");
+                console.log(result);
+                const imageUrl = result.secure_url;
+                const newImage = new ImageModel(Object.assign(req.body, { imageUrl }));
+                newImage.save((err, addedImage) => {
+                    if (err) return res.status(500).send(err);
+                    ImageModel.populate(addedImage, { path: "assignId" }, (err, popImage) => {
+                        if (err) return res.status(404).send(err);
+                        console.log("saved to mongoDB");
+                        res.status(201).send(popImage);
+                    });
+                });
             });
-        });
     });
+// .post((req, res) => {
+//     const newImage = new ImageModel(req.body);
+//     newImage.save((err, addedImage) => {
+//         if (err) return res.send(err);
+//         ImageModel.populate(addedImage, { path: "assignId" }, (err, popImage) => {
+//             if (err) return res.send(err);
+//             res.status(201).send(popImage);
+//         });
+//     });
+// });
 
 imageRouter.route("/:id")
     .get((req, res) => {
