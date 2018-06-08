@@ -107,8 +107,8 @@ class ExamplesDisplay extends React.Component {
                         <button onClick={this.toggleCommentBack}>Back</button>
                         <form onSubmit={this.handleSubmit}>
                             <input onChange={this.handleChange} name="textComment"
-                                value={textComment} type="text" placeholder="Comment (min 5 char.)" />
-                            <button disabled={textComment.length < 5}>Post</button>
+                                value={textComment} type="text" placeholder="Comment (min 3 char.)" />
+                            <button disabled={textComment.length < 3}>Post</button>
                         </form>
                         <ol>Comments:
                         {presentComments}
