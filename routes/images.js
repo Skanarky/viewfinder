@@ -9,7 +9,7 @@ const ImageModel = require("../models/images.js");
 
 const upload = multer({
     dest: "../tmp/",
-    limits: { fileSize: 5000000 }
+    limits: { fileSize: 10000000 }
 });
 
 cloudinary.config({
