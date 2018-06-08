@@ -19,6 +19,7 @@ class App extends React.Component {
         const { isOn } = this.state;
 
         // to be (isOn)
+        
         if (isOn) {
             return <Viewfinder></Viewfinder>
         }
