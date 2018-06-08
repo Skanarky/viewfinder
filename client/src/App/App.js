@@ -3,6 +3,7 @@ import React from "react";
 import Viewfinder from "./Viewfinder/Viewfinder.js";
 
 class App extends React.Component {
+        // USING session storage instead of STATE (fixing reload issues = bad UX)
     constructor(props) {
         super(props);
         this.initialState = {
@@ -13,13 +14,17 @@ class App extends React.Component {
 
     toggleIsOn = () => {
         this.setState({ ...this.state, isOn: true });
+        sessionStorage.setItem("appOnCount", true);
     }
 
     render = () => {
         const { isOn } = this.state;
-
-        // to be (isOn)
-        if (isOn) {
+        const appOnCount = sessionStorage.getItem("appOnCount");
+        
+        // console.log(typeof appOnCount)
+        
+        // to be (appOnCount || isOn)
+        if (appOnCount || isOn) {
             return <Viewfinder></Viewfinder>
         }
         return (
