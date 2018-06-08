@@ -6,8 +6,8 @@ import { deleteImage } from "./../../.././../../../../../redux/images.js";
 class ImagesList extends React.Component {
 
     handleClick = (event) => {
-        const { deleteImage, idImage } = this.props;
-        deleteImage(idImage);
+        const { deleteImage, idImageCloudinary } = this.props;
+        deleteImage(idImageCloudinary);
     }
 
     render = () => {

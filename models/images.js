@@ -22,6 +22,10 @@ const imageSchema = new Schema({
         required: true,
         type: String
     },
+    public_id: {
+        required: true,
+        type: String
+    },
     likes: Number
 }, { timestamps: true })
 

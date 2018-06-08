@@ -14,7 +14,7 @@ class Assignment extends React.Component {
         this.initialState = {
             isViewingExamples: false,
             input: {
-                imgUrlUpload: "",
+                file: null,
                 noteText: ""
             }
         }
@@ -23,12 +23,12 @@ class Assignment extends React.Component {
 
     handleChange = (event) => {
         // console.log(event);
-        const { value, name } = event.target;
+        const { value, name, type, files } = event.target;
         this.setState(prevState => {
             return {
                 input: {
                     ...prevState.input,
-                    [name]: value
+                    [name]: type === "file" ? files[0] : value
                 }
             }
         });
@@ -39,18 +39,26 @@ class Assignment extends React.Component {
         getImages();
     }
 
+    _genFormData = (raw) => {
+        let formData = new FormData();
+        for (let key in raw) {
+            formData.append(key, raw[key]);
+        }
+        return formData;
+    }
+
     handleSubmitUpload = (event) => {
         event.preventDefault();
-        const { imgUrlUpload } = this.state.input;
+        const { file } = this.state.input;
         // need userId later
         const { addImage, idAssignment, idLesson } = this.props;
         const imgUpload = {
             assignId: idAssignment,
             lessonId: idLesson,
-            imageUrl: imgUrlUpload,
+            file,
             likes: 0
         }
-        addImage(imgUpload);
+        addImage(this._genFormData(imgUpload));
         this.setState({ ...this.state, input: this.initialState.input });
     }
 
@@ -65,12 +73,12 @@ class Assignment extends React.Component {
 
     render = () => {
         // console.log(this.props);
-        const { imgUrlUpload, noteText } = this.state.input;
+        const { noteText, file } = this.state.input;
         const { isViewingExamples } = this.state;
 
         // loading, err, id
-        const { data, loading, errMsg, loadingAssignment, 
-            errMsgAssignment, idAssignment, 
+        const { data, loading, errMsg, loadingAssignment,
+            errMsgAssignment, idAssignment,
             idLesson, toggleViewLesson } = this.props;
 
         const styleEx = {
@@ -85,7 +93,9 @@ class Assignment extends React.Component {
             , googleLink } = this.props.lessonId;
 
         const presentImages = data.filter(image => image.assignId._id === idAssignment).map((image, i) =>
-            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} idImage={image._id} {...image}
+            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} 
+            idImage={image._id} {...image}
+            idImageCloudinary={image.public_id} {...image}
                 idAssignment={idAssignment}></ImagesList>
         );
 
@@ -120,9 +130,10 @@ class Assignment extends React.Component {
                                     <div style={{ paddingBottom: "15px" }} className="navRoom">
                                         <Link className="viewfinder" to="/"><span className="stubbornFour">Viewfinder</span></Link>
                                         <Link className="viewfinder" to="/lessons"><span className="stubbornThree">Lessons</span></Link>
-                                        <div  onClick={toggleViewLesson} className="viewfinder"><span className="stubbornTwo">Compositions</span></div>
-                                        <div className="stubbornOne" style={{color: "rgb(128, 128, 128)"}}>Progress: <span style={{
-                                            color: "rgba(218, 38, 38, 0.952)", fontSize: "2em"}}>{presentImages.length / 10 * 100}%</span></div>
+                                        <div onClick={toggleViewLesson} className="viewfinder"><span className="stubbornTwo">Compositions</span></div>
+                                        <div className="stubbornOne" style={{ color: "rgb(128, 128, 128)" }}>Progress: <span style={{
+                                            color: "rgba(218, 38, 38, 0.952)", fontSize: "2em"
+                                        }}>{presentImages.length / 10 * 100}%</span></div>
                                     </div>
                                     <div>
                                         <h2>Assignment {title}</h2>
@@ -143,9 +154,9 @@ class Assignment extends React.Component {
                                         <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>
                                         <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
                                             <form onSubmit={this.handleSubmitUpload}>
-                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="imgUrlUpload"
-                                                    value={imgUrlUpload} type="url" placeholder="Add a Picture" />
-                                                <button style={{ height: "30px", width: "90px" }} disabled={imgUrlUpload.length < 5}>Upload</button>
+                                                <input file={file} style={{ textAlign: "center" }} onChange={this.handleChange} name="file"
+                                                    type="file" />
+                                                <button style={{ height: "30px", width: "90px" }} disabled={!file || data.length === 10}>Upload</button>
                                             </form>
                                             <form onSubmit={this.handleSubmitNote}>
                                                 <input style={{ textAlign: "center" }} onChange={this.handleChange} name="noteText"
