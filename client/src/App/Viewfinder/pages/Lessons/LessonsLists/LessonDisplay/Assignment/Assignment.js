@@ -22,7 +22,8 @@ class Assignment extends React.Component {
             isViewingNotes: false,
             notes: [],
             errMsgNotes: "",
-            loadingNotes: true
+            loadingNotes: true,
+            message: ""
         }
         this.state = this.initialState;
     };
@@ -104,14 +105,15 @@ class Assignment extends React.Component {
         event.preventDefault();
         const assignId = this.props.idAssignment;
         const { textNote } = this.state.input;
-        axios.post(`/api/notes/`, {assignId, textNote})
+        axios.post(`/api/notes/`, { assignId, textNote })
             .then(response => {
                 console.log(response.data);
                 const { data } = response;
                 this.setState(prevState => {
                     return {
                         notes: [...prevState.notes, data],
-                        loadingNotes: false
+                        loadingNotes: false,
+                        input: this.initialState.input
                     }
                 });
             })
@@ -129,14 +131,14 @@ class Assignment extends React.Component {
                 const { data } = response;
                 this.setState(prevState => {
                     return {
-                        notes: [...prevState.notes, data],
-                        loadingNotes: false
+                        notes: prevState.notes.filter(note => note._id !== idNote),
+                        message: data.message
                     }
                 });
             })
             .catch(err => {
                 this.setState({
-                    errMsgNotes: "Data not available"
+                    message: err.message
                 })
             })
     }
@@ -169,7 +171,8 @@ class Assignment extends React.Component {
                 idAssignment={idAssignment}></ImagesList>
         );
         const presentNotes = notes.map((note, i) =>
-            <NotesList key={note._id + i} indexNote={i} loadingNotes={loadingNotes}
+            <NotesList key={note._id + i} deleteNote={this.deleteNote}
+                indexNote={i} loadingNotes={loadingNotes}
                 errMsgNotes={errMsgNotes} note={note}></NotesList>
         );
 
@@ -239,14 +242,14 @@ class Assignment extends React.Component {
                                                 <button style={{ height: "30px", width: "90px" }} disabled={!file}>Upload (10MB max)</button>
                                             </form>
                                             <div>
-                                            <form onSubmit={this.handleSubmitNote}>
-                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="textNote"
-                                                    value={textNote} type="text" placeholder="Write a Note" />
-                                                <div style={{ display: "flex", flexDirection: "row" }}>
-                                                    <button type="submit" style={{ height: "35px", width: "65px" }} disabled={!textNote}>Add Note</button>
-                                                </div>
-                                            </form>
-                                            <button onClick={this.viewNotes} style={{ height: "35px", width: "65px" }}>View Notes</button>
+                                                <form onSubmit={this.handleSubmitNote}>
+                                                    <input style={{ textAlign: "center" }} onChange={this.handleChange} name="textNote"
+                                                        value={textNote} type="text" placeholder="Write a Note" />
+                                                    <div style={{ display: "flex", flexDirection: "row" }}>
+                                                        <button type="submit" style={{ height: "35px", width: "65px" }} disabled={!textNote}>Add Note</button>
+                                                    </div>
+                                                </form>
+                                                <button onClick={this.viewNotes} style={{ height: "35px", width: "65px" }}>View Notes</button>
                                             </div>
                                         </div>
                                         <div style={{ margin: "auto", display: "flex", flexWrap: "wrap" }}>
