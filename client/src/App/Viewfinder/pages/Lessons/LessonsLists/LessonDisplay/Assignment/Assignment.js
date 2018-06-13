@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import { connect } from "react-redux";
 
@@ -15,8 +16,12 @@ class Assignment extends React.Component {
             isViewingExamples: false,
             input: {
                 file: null,
-                noteText: ""
-            }
+                textNote: ""
+            },
+            isViewingNotes: false,
+            notes: [],
+            errMsgNotes: "",
+            loadingNotes: true
         }
         this.state = this.initialState;
     };
@@ -62,7 +67,7 @@ class Assignment extends React.Component {
         this.setState({ ...this.state, input: this.initialState.input });
     }
 
-    toggleViewingExamples = (event) => {
+    toggleViewingExamples = () => {
         this.setState(prevState => {
             return {
                 ...prevState,
@@ -70,11 +75,38 @@ class Assignment extends React.Component {
             }
         });
     }
+    toggleViewingNotes = () => {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                isViewingNotes: !prevState.isViewingNotes
+            }
+        });
+    }
+
+    handleSubmitNote = (event) => {
+        event.preventDefault();
+        const { idAssignment } = this.props;
+        axios.get(`/api/notes/?assignId=${idAssignment}`)
+            .then(response => {
+                console.log(response.data);
+                const { data } = response;
+                this.setState({
+                    notes: data,
+                    loadingNotes: false
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    errMsgNotes: "Data not available"
+                })
+            })
+    }
 
     render = () => {
         // console.log(this.props);
-        const { noteText, file } = this.state.input;
-        const { isViewingExamples } = this.state;
+        const { textNote, file } = this.state.input;
+        const { isViewingExamples, isViewingNotes, notes, errMsgNotes, loadingNotes } = this.state;
 
         // loading, err, id
         const { data, loading, errMsg, loadingAssignment,
@@ -97,6 +129,9 @@ class Assignment extends React.Component {
             idImage={image._id} {...image}
             idImageCloudinary={image.public_id} {...image}
                 idAssignment={idAssignment}></ImagesList>
+        );
+        const presentNotes = notes.map((note, i) =>
+            <li key={note._id + i} index={i}><p>note.textNote</p><h6>note.createdAt</h6></li>
         );
 
         const styleAssignment = {
@@ -151,6 +186,8 @@ class Assignment extends React.Component {
                                                     <Examples shortDescription={shortDescription} key={idLesson} idLesson={idLesson}></Examples>
                                                 </div>
                                             </div> : ""}
+                                        {isViewingNotes ? 
+                                        <ul className="viewNotes">{presentNotes}</ul> : "" }
                                         <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>
                                         <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
                                             <form onSubmit={this.handleSubmitUpload}>
@@ -159,11 +196,11 @@ class Assignment extends React.Component {
                                                 <button style={{ height: "30px", width: "90px" }} disabled={!file}>Upload (10MB max)</button>
                                             </form>
                                             <form onSubmit={this.handleSubmitNote}>
-                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="noteText"
-                                                    value={noteText} type="url" placeholder="Note" />
+                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="textNote"
+                                                    value={textNote} type="url" placeholder="Note" />
                                                 <div style={{ display: "flex", flexDirection: "row" }}>
-                                                    <button style={{ height: "35px", width: "65px" }} disabled={noteText.length < 5}>Add Note</button>
-                                                    <button style={{ height: "35px", width: "65px" }}>View Notes</button>
+                                                    <button type="submit" style={{ height: "35px", width: "65px" }} disabled={!textNote}>Add Note</button>
+                                                    <button onClick={this.toggleViewingNotes} style={{ height: "35px", width: "65px" }}>View Notes</button>
                                                 </div>
                                             </form>
                                         </div>

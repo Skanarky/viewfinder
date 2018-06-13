@@ -6,7 +6,7 @@ const NoteModel = require("../models/notes.js");
 noteRouter.route("/")
     .get((req, res) => {
         NoteModel.find(req.query, (err, foundNotes) => {
-            if (err) return res.send(err);
+            if (err) return res.status(404).send(err);
             res.status(200).send(foundNotes);
         })
     })
