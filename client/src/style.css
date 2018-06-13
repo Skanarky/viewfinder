@@ -612,6 +612,26 @@ footer {
     cursor: default;
 }
 
+.viewNotes {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    background-color: beige;
+    list-style: none;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.notesHead {
+    font-size: 1.5em;
+}
+.oneNote {
+    padding: 0;
+}
+
+
+
 ol {
     font-size: 1.3em;
     text-align: left;
@@ -825,6 +845,20 @@ li h6 {
     }
     .stubbornOne {
         padding-left: 30px;
+    }
+    .viewNotes {
+        width: 320px;
+    }
+    .notesHead {
+        font-size: 1.5em;
+        padding-right: 200px;
+    }
+    
+    .oneNote {
+        margin: auto;
+    }
+    .textNote {
+        padding: 10px;
     }
 }
 

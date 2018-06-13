@@ -228,12 +228,6 @@ class Assignment extends React.Component {
                                                     <Examples shortDescription={shortDescription} key={idLesson} idLesson={idLesson}></Examples>
                                                 </div>
                                             </div> : ""}
-                                        {isViewingNotes ?
-                                            <ul className="viewNotes">
-                                                <button style={{ height: "35px" }} onClick={this.hideViewingNotes}>Hide Notes</button>
-                                                <div>Notes:</div>
-                                                {presentNotes}
-                                            </ul> : ""}
                                         <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>
                                         <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
                                             <form onSubmit={this.handleSubmitUpload}>
@@ -252,6 +246,12 @@ class Assignment extends React.Component {
                                                 <button onClick={this.viewNotes} style={{ height: "35px", width: "65px" }}>View Notes</button>
                                             </div>
                                         </div>
+                                        {isViewingNotes ?
+                                            <ul className="viewNotes">
+                                                <button style={{ height: "35px" }} onClick={this.hideViewingNotes}>Hide Notes</button>
+                                                <div className="notesHead">Notes:</div>
+                                                {presentNotes}
+                                            </ul> : ""}
                                         <div style={{ margin: "auto", display: "flex", flexWrap: "wrap" }}>
                                             {presentImages}
                                         </div>
