@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import { connect } from "react-redux";
 
@@ -7,6 +8,7 @@ import { addImage, getImages } from "./../../.././../../../../redux/images.js";
 
 import Examples from "../Examples/Examples.js";
 import ImagesList from "./ImagesList/ImagesList.js";
+import NotesList from "./NotesList/NotesList.js";
 
 class Assignment extends React.Component {
     constructor(props) {
@@ -15,8 +17,13 @@ class Assignment extends React.Component {
             isViewingExamples: false,
             input: {
                 file: null,
-                noteText: ""
-            }
+                textNote: ""
+            },
+            isViewingNotes: false,
+            notes: [],
+            errMsgNotes: "",
+            loadingNotes: true,
+            message: ""
         }
         this.state = this.initialState;
     };
@@ -62,7 +69,7 @@ class Assignment extends React.Component {
         this.setState({ ...this.state, input: this.initialState.input });
     }
 
-    toggleViewingExamples = (event) => {
+    toggleViewingExamples = () => {
         this.setState(prevState => {
             return {
                 ...prevState,
@@ -70,11 +77,76 @@ class Assignment extends React.Component {
             }
         });
     }
+    hideViewingNotes = () => {
+        this.setState({
+            isViewingNotes: false
+        });
+    }
+    viewNotes = () => {
+        const { idAssignment } = this.props;
+        axios.get(`/api/notes/?assignId=${idAssignment}`)
+            .then(response => {
+                // console.log(response.data);
+                const { data } = response;
+                this.setState({
+                    notes: data,
+                    loadingNotes: false,
+                    isViewingNotes: true
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    errMsgNotes: "Data not available"
+                })
+            })
+    }
+
+    handleSubmitNote = (event) => {
+        event.preventDefault();
+        const assignId = this.props.idAssignment;
+        const { textNote } = this.state.input;
+        axios.post(`/api/notes/`, { assignId, textNote })
+            .then(response => {
+                console.log(response.data);
+                const { data } = response;
+                this.setState(prevState => {
+                    return {
+                        notes: [...prevState.notes, data],
+                        loadingNotes: false,
+                        input: this.initialState.input
+                    }
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    errMsgNotes: "Data not available"
+                })
+            })
+    }
+
+    deleteNote = (idNote) => {
+        axios.delete(`/api/notes/${idNote}`)
+            .then(response => {
+                console.log(response.data);
+                const { data } = response;
+                this.setState(prevState => {
+                    return {
+                        notes: prevState.notes.filter(note => note._id !== idNote),
+                        message: data.message
+                    }
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    message: err.message
+                })
+            })
+    }
 
     render = () => {
         // console.log(this.props);
-        const { noteText, file } = this.state.input;
-        const { isViewingExamples } = this.state;
+        const { textNote, file } = this.state.input;
+        const { isViewingExamples, isViewingNotes, notes, errMsgNotes, loadingNotes } = this.state;
 
         // loading, err, id
         const { data, loading, errMsg, loadingAssignment,
@@ -93,10 +165,15 @@ class Assignment extends React.Component {
             , googleLink } = this.props.lessonId;
 
         const presentImages = data.filter(image => image.assignId._id === idAssignment).map((image, i) =>
-            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i} 
-            idImage={image._id} {...image}
-            idImageCloudinary={image.public_id} {...image}
+            <ImagesList shortDescription={shortDescription} errMsg={errMsg} loading={loading} key={image._id + i} index={i}
+                idImage={image._id} {...image}
+                idImageCloudinary={image.public_id} {...image}
                 idAssignment={idAssignment}></ImagesList>
+        );
+        const presentNotes = notes.map((note, i) =>
+            <NotesList key={note._id + i} deleteNote={this.deleteNote}
+                indexNote={i} loadingNotes={loadingNotes}
+                errMsgNotes={errMsgNotes} note={note}></NotesList>
         );
 
         const styleAssignment = {
@@ -158,15 +235,23 @@ class Assignment extends React.Component {
                                                     type="file" />
                                                 <button style={{ height: "30px", width: "90px" }} disabled={!file}>Upload (10MB max)</button>
                                             </form>
-                                            <form onSubmit={this.handleSubmitNote}>
-                                                <input style={{ textAlign: "center" }} onChange={this.handleChange} name="noteText"
-                                                    value={noteText} type="url" placeholder="Note" />
-                                                <div style={{ display: "flex", flexDirection: "row" }}>
-                                                    <button style={{ height: "35px", width: "65px" }} disabled={noteText.length < 5}>Add Note</button>
-                                                    <button style={{ height: "35px", width: "65px" }}>View Notes</button>
-                                                </div>
-                                            </form>
+                                            <div>
+                                                <form onSubmit={this.handleSubmitNote}>
+                                                    <input style={{ textAlign: "center" }} onChange={this.handleChange} name="textNote"
+                                                        value={textNote} type="text" placeholder="Write a Note" />
+                                                    <div style={{ display: "flex", flexDirection: "row" }}>
+                                                        <button type="submit" style={{ height: "35px", width: "65px" }} disabled={!textNote}>Add Note</button>
+                                                    </div>
+                                                </form>
+                                                <button onClick={this.viewNotes} style={{ height: "35px", width: "65px" }}>View Notes</button>
+                                            </div>
                                         </div>
+                                        {isViewingNotes ?
+                                            <ul className="viewNotes">
+                                                <button style={{ height: "35px" }} onClick={this.hideViewingNotes}>Hide Notes</button>
+                                                <div className="notesHead">Notes:</div>
+                                                {presentNotes}
+                                            </ul> : ""}
                                         <div style={{ margin: "auto", display: "flex", flexWrap: "wrap" }}>
                                             {presentImages}
                                         </div>
