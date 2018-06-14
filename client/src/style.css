@@ -613,24 +613,25 @@ footer {
 }
 
 .viewNotes {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     border: 3px solid black;
     background-color: beige;
-    list-style: none;
-    padding: 0;
-    padding-left: 10px;
-    padding-right: 5px;
+    list-style: lower-roman;
+    padding: 15px;
+    /* padding-left: 10px; */
+    /* padding-right: 5px; */
 }
 
 .notesHead {
     font-size: 1.5em;
 }
+
 .oneNote {
     padding: 0;
+    border: 2px solid darkred;
+    margin: 5px;
 }
-
-
 
 ol {
     font-size: 1.3em;
@@ -847,18 +848,21 @@ li h6 {
         padding-left: 30px;
     }
     .viewNotes {
-        width: 320px;
+        width: 500px;
+        margin: auto;
+        /* position: absolute;
+        bottom: 1.5%;
+        right: .1%; */
     }
     .notesHead {
         font-size: 1.5em;
-        padding-right: 200px;
-    }
-    
-    .oneNote {
-        margin: auto;
+        padding-right: 300px;
     }
     .textNote {
-        padding: 10px;
+        padding: 0;
+        padding-left: 15px;
+        color: darkred;
+        font-size: 1.3em;
     }
 }
 
@@ -965,6 +969,10 @@ li h6 {
         /* transform: translateX(-50%) translateY(-50%); */
         top: 2.5%;
         right: 1.7%;
+    }
+    .oneNote p {
+        height: auto;
+        line-height: 30px;
     }
 }
 
