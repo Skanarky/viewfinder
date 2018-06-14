@@ -229,7 +229,7 @@ class Assignment extends React.Component {
                                                 </div>
                                             </div> : ""}
                                         <Link style={{ width: "190px", margin: "0 auto", textDecoration: "none" }} to={googleLink} target="_blank">Examples from the Web</Link>
-                                        <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "210px", justifyContent: "space-evenly" }}>
+                                        <div style={{ margin: "auto", display: "flex", flexDirection: "row", width: "180px", justifyContent: "space-evenly" }}>
                                             <form onSubmit={this.handleSubmitUpload}>
                                                 <input file={file} style={{ textAlign: "center" }} onChange={this.handleChange} name="file"
                                                     type="file" />
