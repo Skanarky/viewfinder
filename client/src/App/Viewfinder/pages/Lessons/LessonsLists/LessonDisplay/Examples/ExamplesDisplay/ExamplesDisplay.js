@@ -83,8 +83,8 @@ class ExamplesDisplay extends React.Component {
         const { textComment } = this.state.comment;
 
         // loading, err, id
-        const { shortDescription, exampleImageId,
-            index, imageUrl, likes } = this.props;
+        const { shortDescription, exampleImageId
+            , imageUrl, likes } = this.props;
         // console.log(likes);
 
         const { data, loading, errMsg } = this.props;
