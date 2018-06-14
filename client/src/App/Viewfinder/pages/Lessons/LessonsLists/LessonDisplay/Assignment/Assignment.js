@@ -233,7 +233,7 @@ class Assignment extends React.Component {
                                             <form onSubmit={this.handleSubmitUpload}>
                                                 <input file={file} style={{ textAlign: "center" }} onChange={this.handleChange} name="file"
                                                     type="file" />
-                                                <button style={{ height: "30px", width: "90px" }} disabled={!file}>Upload (10MB max)</button>
+                                                <button style={{ height: "35px", width: "90px" }} disabled={!file}>Upload (10MB max)</button>
                                             </form>
                                             <div>
                                                 <form onSubmit={this.handleSubmitNote}>
