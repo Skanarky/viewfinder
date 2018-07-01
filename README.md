@@ -1,5 +1,5 @@
 # Viewfinder
-[Website](https://viewfinder-kutkurov.herokuapp.com/)
+[View deployed version here](https://viewfinder-kutkurov.herokuapp.com/)
 
 ## Table of Contents
 
@@ -21,9 +21,17 @@
 
 Full stack project.
 
-It is associated with 'Full-stack Application' project from my time at V School.
+Single page application (SPA) providing an all-in-one-platform for learning photography including lessons, exercises, etc.
 
-The requirements for the assignment can be found at [Full-stack Application](https://coursework.vschool.io/first-full-stack-application/)
+Responsive design.
+
+Redux and Axios used in addition with React.
+
+Modularity patterns applied (separating components, containers, etc. into own folders and files).
+
+Express routers.
+
+MongoDB as database and Mongoose for schema creation and the ODM (Object-Document Mapper)
 
 
 
