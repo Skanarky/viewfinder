@@ -19,7 +19,7 @@
 
 ## Description
 
-Full stack project.
+Full stack project (there is work in progress: User Authentication and Lessons' content).
 
 Single page application (SPA) providing an all-in-one-platform for learning photography including lessons, exercises, etc.
 
