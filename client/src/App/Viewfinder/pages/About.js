@@ -19,7 +19,7 @@ const About = (props) => {
                 <p>A real photographer <span className="boldy">makes</span> the picture - he assembles it through his emotions, his eyes and his knowledge of arts and art compositions!</p>
                 <p>In this web app you’ll learn how to use your emotions as a creative power, train your eyes, plan your shoots, and last, but not least - how to use the art compositions to get the most out of your pictures.</p>
                 <p>We will focus more on making pictures and less on the camera.</p>
-                <p>We will focus more on the artistic quality of each picture - and less on the quantity. Less is <span className="boldy">more</span>!</p>
+                <p>We will focus more on the artistic quality of each picture - and less on the quantity. <span className="boldy">Less</span> is <span className="boldy">more</span>!</p>
                 <p>Have fun - and start <Link className="noLineRed" to="/lessons"><span className="red">making</span></Link> great pictures <Link className="noLineRed" to="/lessons"><span className="red">today</span></Link>… your eyes are all you need!</p>
             </div>
         </section>
