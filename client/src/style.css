@@ -448,10 +448,10 @@ iframe:hover {
     font-weight: bold;
     font-size: 1.2em;
     background-repeat: no-repeat;
-    background-position: bottom;
     background-size: auto 80px;
     width: 150px;
     height: 100px;
+    padding-top: 10px;
 }
 
 .composition:hover,
@@ -460,10 +460,12 @@ iframe:hover {
 }
 
 .composition {
-    background-image: url("./pics/goldenspiraloverlay4-2x3.png");
+    background-position: bottom;
+    background-image: url("./pics/Fibonacci_spiral_34.svg");
 }
 
 .prism {
+    background-position: bottom;
     background-image: url("./pics/Prism.png");
 }
 
