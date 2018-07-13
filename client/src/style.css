@@ -903,7 +903,7 @@ li h6 {
         left: 90%;
     }
     .login:hover {
-        font-size: 1.15em;
+        color: rgb(128, 128, 128);
     }
     .noLine:hover,
     .lessons:hover {
