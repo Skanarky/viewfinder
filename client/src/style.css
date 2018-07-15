@@ -430,8 +430,10 @@ iframe:hover {
 }
 
 .centerTwo {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     position: absolute;
     transform: translateX(-50%) translateY(-50%);
     top: 50%;
@@ -807,6 +809,10 @@ li h6 {
         display: flex;
         flex-wrap: wrap;
     }
+    .centerTwo {
+        width: 80%;
+    }
+
     .viewOneLesson {
         justify-content: space-evenly;
         line-height: 25px;
@@ -952,6 +958,9 @@ li h6 {
     ul {
         padding-left: 50px;
     }
+    .centerTwo {
+        width: 70%;
+    }
     .viewOneLesson {
         background-color: rgb(128, 128, 128, 1);
     }
@@ -1003,5 +1012,8 @@ li h6 {
 @media (min-width: 2800px) {
     .singleItemOthers p {
         text-align: center;
+    }
+    .centerTwo {
+        width: 60%;
     }
 }
