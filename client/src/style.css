@@ -823,7 +823,7 @@ li h6 {
     }
     .lessonsArrangeInside {
         display: grid;
-        grid-template-rows: 50% 50%;
+        /* grid-template-rows: 50% 50%; */
         grid-template-columns: 50% 50%;
     }
     .singleItemOthers {
