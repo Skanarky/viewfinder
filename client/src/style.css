@@ -56,6 +56,39 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.ftr-prvcy {
+    position: fixed;
+    align-items: center;
+    padding: 8px 6% 8px 6%;
+    background-color: rgb(199, 196, 196);
+    border-radius: 12px;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    bottom: 0;
+    left: 2%;
+    min-height: 50px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.ftr-prvcy-btn-close {
+    background-color: transparent;
+    border-color: lightgray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ftr-prvcy-btn-gotit {
+    background-color: rgba(124, 191, 245, 0.21);
+    border-color: transparent;
+    color: whitesmoke;
+    border-color: gray;
+    padding: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
 .topLeft,
 .topRight,
 .bottomLeft,
@@ -753,6 +786,9 @@ li h6 {
 }
 
 @media (min-width: 1015px) {
+    .ftr-prvcy {
+        background-color: rgba(199, 196, 196, 0.7);
+    }
     footer {
         width: 50%;
     }

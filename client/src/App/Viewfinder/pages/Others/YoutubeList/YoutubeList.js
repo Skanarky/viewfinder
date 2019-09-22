@@ -21,11 +21,15 @@ class YoutubeList extends React.Component {
             return (
                 <div style={{ color: "rgba(199, 2, 2, 0.63)", paddingLeft: "15px", fontSize: ".9em" }}>{errMsg}</div>
             )
-        } else {
+        } else if (data && data.length > 0) {
             return (
                 <div className="othersContain">
                     {presentVideos}
                 </div>
+            )
+        } else {
+            return (
+                <div></div>
             )
         }
     }

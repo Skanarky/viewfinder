@@ -1,6 +1,7 @@
 import React from "react";
 
 import Viewfinder from "./Viewfinder/Viewfinder.js";
+import FooterPrvcy from "./FooterPrvcy/FooterPrvcy";
 
 class App extends React.Component {
         // USING session storage instead of STATE (fixing reload issues = bad UX)
@@ -25,7 +26,12 @@ class App extends React.Component {
         
         // to be (appOnCount || isOn)
         if (appOnCount || isOn) {
-            return <Viewfinder></Viewfinder>
+            return (
+                <div>
+                    <Viewfinder></Viewfinder>
+                    <FooterPrvcy></FooterPrvcy>
+                </div>
+            )
         }
         return (
             <div className="welcome">
@@ -37,6 +43,7 @@ class App extends React.Component {
                     <div onClick={this.toggleIsOn} className="camera">
                     </div>
                 </div>
+                <FooterPrvcy></FooterPrvcy>
             </div>
         )
     }

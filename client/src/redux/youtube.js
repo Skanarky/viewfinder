@@ -2,7 +2,7 @@ import axios from "axios";
 
 const initialState = {
     data: [],
-    loading: true,
+    loading: false,
     errMsg: ""
 }
 
@@ -20,6 +20,11 @@ const youtubeReducer = (state = initialState, action) => {
                 errMsg: action.errMsg,
                 loading: false
             }
+        case "LOAD":
+            return {
+                ...state,
+                loading: true
+            }
         default:
             return state
     }
@@ -30,6 +35,9 @@ const youtubeReducer = (state = initialState, action) => {
 
 export const getVideos = (searchWord) => {
     return dispatch => {
+        dispatch({
+            type: "LOAD"
+        });
         axios.get(`/videos/${searchWord}`)
             .then(response => {
                 // console.log(response.data);
