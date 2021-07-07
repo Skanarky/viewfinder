@@ -76,6 +76,7 @@ class ExamplesDisplay extends React.Component {
         });
         this.setState({ ...this.state, comment: this.initialState.comment });
     }
+    
 
     render = () => {
         // console.log(this.props);
